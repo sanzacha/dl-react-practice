@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 import DealersView from './dealersView/dealersView';
 import { connect } from 'react-redux';
 import { createDealerAction } from '../../store/actions/dealerActions';
-import axios from 'axios';
 import Grid from '@material-ui/core/Grid';
 import MapView from './mapView/mapView';
-
+import SerachDealer from './search/search';
 
 const styles = {
     paper: {
@@ -21,15 +20,7 @@ class MainView extends Component {
     }
 
     componentDidMount() {
-        // console.log(this.props.createDealerAction);
         this.props.createDealerAction(this.state);
-
-        axios.get(`https://dl-react.firebaseio.com/dealers.json`)
-        .then(res => {
-            const dealers = res.data;
-            this.setState({ dealersData: dealers });
-            // console.log('Data', dealers);
-        })
     }
 
     render() {
@@ -39,6 +30,7 @@ class MainView extends Component {
             <React.Fragment>
                 <Grid container spacing={24}>
                     <Grid item xs={3} style={styles.paper}>
+                        <SerachDealer />
                         <DealersView dealersData={dealersData} />
                     </Grid>
                     <Grid item xs={9}>

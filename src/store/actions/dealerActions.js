@@ -1,10 +1,24 @@
+import axios from 'axios';
+
 export const createDealerAction = (dealer) => {
     return (dispatch, getState) => {
-        // Here will make the async call to database
-        // console.log('async call to database');
         dispatch({
-            type: 'CREATE_DEALER',
-            dealer
+            type: 'FETCH_DEALER_START'
+        })
+
+        axios.get(`https://dl-react.firebaseio.com/dealers.json`)
+        .then(res => {
+            dispatch({
+                type: 'RECEIVE_DEALERS',
+                payload: res.data
+            })
+        })
+
+        .catch((err) => {
+            dispatch({
+                type: 'FETCH_DEALER_ERROR',
+                payload: err
+            })
         })
     }
 }
