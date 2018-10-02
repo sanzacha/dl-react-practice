@@ -1,0 +1,18 @@
+.search-view {
+    // background-color: #000;
+
+    .c_207_1 {
+        padding: 15px;
+
+        .query-box {
+            .places-search-box {
+                border: 3px solid #4c4c4c;
+                display: inline-block;
+                width: 100%;
+                z-index: 2;
+                border-right-width: 0;
+                height: 30px;
+            }
+        }
+    }
+}

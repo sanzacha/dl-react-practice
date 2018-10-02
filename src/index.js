@@ -6,6 +6,7 @@ import rootReduer from './store/reducers/rootReducer';
 import { Provider } from 'react-redux'; /* Binding Layer - Bind redux with React */
 import thunk from 'redux-thunk'; /* -- Middleware for sync call ---- */
 import logger from 'redux-logger';
+import './index.scss';
 
 const enhancers = compose(
     window.devToolsExtension ? window.devToolsExtension() : state => state

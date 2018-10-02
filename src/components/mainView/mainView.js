@@ -5,22 +5,11 @@ import { createDealerAction } from '../../store/actions/dealerActions';
 import Grid from '@material-ui/core/Grid';
 import MapView from './mapView/mapView';
 import SerachDealer from './search/search';
-
-const styles = {
-    paper: {
-      padding: 20,
-      textAlign: 'left',
-    },
-};
-
+import './mainView.scss';
 
 class MainView extends Component {
     state = {
-        dealers: []
-    }
-
-    componentDidMount() {
-        this.props.createDealerAction(this.state);
+        dealers: [],
     }
 
     render() {
@@ -29,11 +18,11 @@ class MainView extends Component {
         return(
             <React.Fragment>
                 <Grid container spacing={24}>
-                    <Grid item xs={3} style={styles.paper}>
+                    <Grid item xs={3} className="left-wrapper">
                         <SerachDealer />
                         <DealersView dealersData={dealersData} />
                     </Grid>
-                    <Grid item xs={9}>
+                    <Grid item xs={9} className="right-container">
                         <MapView />
                     </Grid>
                 </Grid>
@@ -48,10 +37,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        createDealerAction: (dealer) => dispatch(createDealerAction(dealer))
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(MainView);
+export default connect(mapStateToProps)(MainView);
