@@ -6,11 +6,9 @@ import { withStyles } from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import TextField from '@material-ui/core/TextField';
-import MenuItem from '@material-ui/core/MenuItem';
-import Visibility from '@material-ui/icons/Visibility';
-import VisibilityOff from '@material-ui/icons/VisibilityOff';
 import { connect } from 'react-redux';
 import { createDealerAction } from '../../../store/actions/dealerActions';
+import Icon from '@material-ui/core/Icon';
 
 const styles = theme => ({
   root: {
@@ -22,7 +20,11 @@ const styles = theme => ({
   },
   textField: {
     flexBasis: 300,
+    width: '93%',
   },
+  container: {
+    width: '100%',
+  }
 });
 
 class SerachDealer extends Component {
@@ -37,14 +39,12 @@ class SerachDealer extends Component {
 
     handleClickShowPassword = (event) => {
         if(this.state.location !== '') {
-            console.log(this.state);
             this.props.createDealerAction(this.state);
         }
     };
 
     render() {
       const { classes } = this.props;
-
         return (
             <div className="search-view">
                 <div className="c_207_1">
@@ -64,7 +64,7 @@ class SerachDealer extends Component {
                                     <IconButton
                                       aria-label="Toggle password visibility"
                                       onClick={this.handleClickShowPassword}>
-                                        <Visibility />
+                                        <Icon>search</Icon>
                                     </IconButton>
                                   </InputAdornment>
                                 ),

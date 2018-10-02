@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import DealersView from './dealersView/dealersView';
 import { connect } from 'react-redux';
-import { createDealerAction } from '../../store/actions/dealerActions';
 import Grid from '@material-ui/core/Grid';
 import MapView from './mapView/mapView';
 import SerachDealer from './search/search';
